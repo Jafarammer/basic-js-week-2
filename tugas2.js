@@ -19,7 +19,7 @@ const cariNama = [
 
 const filterItems = (arr, query) => {
   return arr.filter(
-    (el) => el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    (param) => param.toLowerCase().indexOf(query.toLowerCase()) !== -1
   );
 };
 const al = filterItems(cariNama, "o");
