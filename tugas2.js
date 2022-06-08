@@ -1,4 +1,4 @@
-const cariNama = [
+const names = [
   "Abigail",
   "Alexandra",
   "Alison",
@@ -15,21 +15,25 @@ const cariNama = [
   "Faith",
   "Olivia",
   "Penelope",
+  "PENE",
 ];
 
-const filterItems = (arr, query) => {
-  const filtered = arr.filter(function (hasil) {
-    return hasil.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-  });
-  if (filtered == 0) {
-    return "Nama tidak ditemukan";
-  } else {
-    const temp = [];
-    const al = filtered;
-    for (let i = 0; i < 3; i++) {
-      temp.push(al[i]);
-    }
-    return temp;
+const searchName = (names, limits) => {
+  if (names.length > limits) {
+    names.length = limits;
   }
+  return names;
 };
-console.log(filterItems(cariNama, "jafar"));
+
+const filterItems = (names, keys, limits, callback) => {
+  const filtered = names.filter((hasil) => {
+    return hasil.toLowerCase().includes(keys.toLowerCase());
+  });
+
+  if (!filtered.length) {
+    return `Untuk nama ${keys} tidak ditemukan`;
+  }
+
+  return callback(filtered, limits);
+};
+console.log(filterItems(names, "pene", 3, searchName));
