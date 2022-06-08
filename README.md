@@ -1,2 +1,2 @@
-# basic-js-week2
-Folder belajar di pijar camp tentang javascript minggu ke 2
+# Basic Javascript
+Folder belajar di PIJAR CAMP
